@@ -1,4 +1,4 @@
-# springojs
+# SpringoJS
 
 SpringoJS = Spring + RingoJS!
 
