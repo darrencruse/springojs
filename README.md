@@ -238,6 +238,9 @@ The BufferedResponseWrapper class wraps a servlet response and buffers it's outp
 so that the Javascript interceptor has the option of modifying it before it's sent
 back to the client.
 
+This is necessary because in java the standard HttpServletResponse class is designed
+to be read-only.
+
 #### RingoModuleBridge
 
 RingoModuleBridge can be used to invoke RingoJS javascript module functions
