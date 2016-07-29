@@ -112,7 +112,7 @@ Note:  The SpringoJS servlet filter is unique to SpringoJS - RingoJS normally
   runs as a *servlet* not a *filter*.
 
 The "before" or "after" approach may remind you of "AOP" - in this case you
-can use Javascript to quickly/easily provide the "advice" to code that's
+can use Javascript to quickly/easily provide the "advice" to Spring "controller" code
 implemented in Java.
 
 SpringoJS provides the option to deploy the ringojs Javascript files to the
