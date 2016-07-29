@@ -1,14 +1,19 @@
 # SpringoJS
 
-SpringoJS = Spring + RingoJS!
+SpringoJS = [Spring](https://spring.io) + [RingoJS](http://ringojs.org)!
 
-Springo provides a minimal framework for incorporating RingoJS into a Spring MVC
+Springo provides a minimal framework for incorporating [RingoJS](http://ringojs.org) into a [Spring MVC](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html)
 application.
 
 Note: RingoJS is built on top of Rhino a very mature Javascript engine that
   runs on the JVM.  In what follows I will sometimes use "Ringo" and "Rhino"
-  interchangeably.  In reality Ringo is a *superset* of Rhino.
-
+  interchangeably.  In reality Ringo is a *superset* of Rhino that adds (node.js
+  style) CommonJS module support to Rhino, along with a variety of modules 
+  including an express-style middleware framework called "stick".  The result
+  is a very node.js-like framework that runs on the JVM with the biggest
+  difference being the use of java style blocking I/O which avoids the 
+  frequent use of callbacks as seen in node.js.
+  
 The approach used in Springo has been used quite successfully at a fortune 500
 company to deliver RESTful JSON services using a codebase that started as a
 Java Spring application, but evolved into a "hybrid" Spring + Server-Side
