@@ -10,20 +10,19 @@
  * app.configure("notfound", "error", "jsonerror", "forwardunhandledtospring");
  */
 
-var utils = require("evolve/modules/springoutils");
+var utils = require("springoutils");
 var {Response} = require('ringo/webapp/response');
 var log = require("ringo/logging").getLogger("forwardunhandledtospring");
 
 /**
- * Stick middleware forwarding unhandled requests to the admin side Spring request dispatcher.
+ * Stick middleware forwarding unhandled requests to the Spring request dispatcher.
  * @param {Function} next the wrapped middleware chain
  * @param {Object} app the Stick Application object
  * @returns {Function} a JSGI response object
  */
 exports.middleware = function forwardunhandledrequest(next, app) {
 
-	// defaults below work for portal api only
-	// (i.e. need to override these defaults for everywhere else)
+	// (override these defaults)
 	app.forwardunhandledrequest = {
 			from: /\/.*\/api\//,
 			to: '\/_api\/'

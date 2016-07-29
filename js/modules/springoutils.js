@@ -33,7 +33,7 @@ exports.forwardtospringdispatcher = function(request, from, to) {
 
 	var originalRequestPath = request.env.servletRequest.requestURI;
 	if(from.test(originalRequestPath)) {
-		// Yup this is a portal service request - forward it on to the internal Spring url:
+		// forward this on to the internal Spring url:
 		var springRequestPath = originalRequestPath.replace(from, to);
 		var requestDispatcher = request.env.servletRequest.getRequestDispatcher(springRequestPath);
 		if(requestDispatcher) {
@@ -93,7 +93,7 @@ exports.capturefromspringdispatcher = function(request, from, to) {
 
 	var originalRequestPath = request.env.servletRequest.requestURI;
 	if(from.test(originalRequestPath)) {
-		// Yup this is a portal service request - forward it on to the internal Spring url:
+		// forward this on to the internal Spring url:
 		var springRequestPath = originalRequestPath.replace(from, to);
 		var requestDispatcher = request.env.servletRequest.getRequestDispatcher(springRequestPath);
 		if(requestDispatcher) {
@@ -190,7 +190,7 @@ function captureFilter(servletRequest, servletResponse) {
 }
 
 /**
- * Parse the provided json string (otherwise cause the standard evolve
+ * Parse the provided json string (otherwise cause the standard 
  * JSON response to be generated if it's invalid JSON).
  * @param {String} a string containing JSON.
  * @returns {Object} the javascript JSON Object

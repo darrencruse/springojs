@@ -15,15 +15,14 @@ var {Response} = require('ringo/webapp/response');
 var log = require("ringo/logging").getLogger("captureunhandledrequest");
 
 /**
- * Stick middleware forwarding unhandled requests to the admin side Spring request dispatcher.
+ * Stick middleware forwarding unhandled requests to the Spring request dispatcher.
  * @param {Function} next the wrapped middleware chain
  * @param {Object} app the Stick Application object
  * @returns {Function} a JSGI response object
  */
 exports.middleware = function captureunhandledrequest(next, app) {
 
-	// defaults below work for portal api only
-	// (i.e. need to override these defaults for everywhere else)
+	// (need to override these defaults)
 	app.captureunhandledrequest = {
 			from: /\/.*\/api\//,
 			to: '\/_api\/'

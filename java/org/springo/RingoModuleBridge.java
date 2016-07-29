@@ -120,8 +120,6 @@ public class RingoModuleBridge {
   if (borrowEngine) {
    JsgiFilter ringoFilter = JsgiFilter.instance;
    if (ringoFilter != null) {
-    // Note:  Admin now uses two ringo filters - we've arranged things in web.xml
-    //        so the api filter is created last and is the one we get here.
     engine = ringoFilter.getServletRhinoEngine();
    } else {
     logger.error("The RingoModuleBridge is configured for use of the JsgiFilter's engine but JsgiFilter has not initialized!");
