@@ -48,7 +48,7 @@ into our legacy Java code), we wrote our RingoJS server-side Javascript code
 in a simpler non-stateful/non-Object-Oriented style with less of the ceremony
 and verbosity that Java can bring.
 
-* Disclaimer
+### Disclaimer
 
 Though we had great success with this approach the code in this repository
 has not been tested with the latest version of RingoJS, and it's been designed
@@ -71,7 +71,7 @@ underlying Javascript engine.  While we found the maturity of Ringo/Rhino of
 benefit on our project, we started several years ago before Nashorn was on the
 scene - whereas today Nashorn is the *official* future of Javascript on the JVM.
 
-* Disclaimer on the Disclaimer
+#### Disclaimer on the Disclaimer
 
 Maybe this goes without saying but...
 
@@ -96,7 +96,7 @@ the JVM using RingoJS.
 On a real world project (with fairly high traffic!) that's still
 running today.
 
-* SpringoJS Architecture
+### SpringoJS Architecture
 
 An app using the SpringoJS approach is a normal Spring MVC application.
 
@@ -144,11 +144,11 @@ know Java (note however that *some* knowledge of Java is helpful when writing
 the RingoJS server side Javascript since you often invoke Java code from
 your server-side Javascript).
 
-* Major Java Classes
+### Major Java Classes
 
 See the javadocs in the java source for more information on the below.
 
-** RingoJsgiFilter
+#### RingoJsgiFilter
 
 The RingoJsgiFilter lets you use Ringo Javascript along side Spring MVC in a
 single JVM process.
@@ -173,7 +173,7 @@ Option b. esp. when implementing JSON RESTful services, allows for easy
 can be used to modify (or validate) the request before the Java framework
 sees it, and/or modify the response that the other framework generated.
 
-** Example web.xml config for RingoJsgiFilter
+#### Example web.xml config for RingoJsgiFilter
 
 See RingoJS docs for details about the settings you see below.
 
@@ -218,7 +218,7 @@ See RingoJS docs for details about the settings you see below.
 </filter-mapping>
 ```
 
-** Overriding Ringo Settings Using -D
+#### Overriding Ringo Settings Using -D
 
 It's esp. helpful on developer PCs to override the web.xml settings above using
 -D java command line options (e.g. web.xml paths might be Unix paths for deployment
@@ -227,13 +227,13 @@ while the developer might be developing using Windows).
 e.g. the "ringo-home" can optionally be overridden via "-Dscripting.home=X" and/or
 "debug" can be overridden via e.g. "-Dscripting.debug=true".
 
-** BufferedResponseWrapper
+#### BufferedResponseWrapper
 
 The BufferedResponseWrapper class wraps a servlet response and buffers it's output
 so that the Javascript interceptor has the option of modifying it before it's sent
 back to the client.
 
-** RingoModuleBridge
+#### RingoModuleBridge
 
 RingoModuleBridge can be used to invoke RingoJS javascript module functions
 from java.
@@ -264,9 +264,9 @@ Exceptions:
    (this is an enhancement we've made that only applies when invoking
    Javascript via the RingoModuleBridge).
 
-* Javascript Modules
+### Javascript Modules
 
-** springcontext
+#### springcontext
 
 The springcontext module lets you inject one or more beans from Spring into
 the specified Javascript object.
@@ -295,50 +295,50 @@ is added normally using the "jsonDataService" bean name as the variable name).
 Note:  If any of the specified bean names are not found in Spring, a
       NoSuchBeanException is thrown.
 
-* Javascript Middleware
+### Javascript Middleware
 
 SpringoJS provides custom middleware to modify requests, and generate (then
 modify if desired) the responses generated using Spring MVC.
 
 Note:  if you're new to middleware read Ringo's "stick" framework documentation.
 
-* Modify Request (before Spring MVC)
+### Modify Request (before Spring MVC)
 
-** modifyrequestparams
+#### modifyrequestparams
 
 Modify the query parameters of the incoming request.
 
-** modifyrequestbody
+#### modifyrequestbody
 
 Modify the JSON payload of a POST request.
 
-** modifyservletrequest
+#### modifyservletrequest
 
 Modify the servlet request object for an incoming request.
 
 This can be used e.g. to modify request headers.
 
-* Modify Response (after Spring MVC)
+### Modify Response (after Spring MVC)
 
-** modifyresponsebody
+#### modifyresponsebody
 
 Modify the JSON response generated for a request.
 
-** modifyservletresponse
+#### modifyservletresponse
 
 Modify the servlet response object after generating the response.
 
 This can used e.g. to modify the resulting http status code, etc.
 
-* Generate Response (invoke Spring MVC)
+### Generate Response (invoke Spring MVC)
 
-** runfilterchain
+#### runfilterchain
 
 Capture the output of running the servlet filter chain.
 
-* Other
+### Other
 
-** jsonerror
+#### jsonerror
 
 Catch (thrown) application errors and generate
 a *standard* JSON error response to the RESTful client.
