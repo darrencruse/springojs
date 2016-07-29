@@ -129,12 +129,11 @@ truly a hybrid - some parts written in Java and some parts written in
 Javascript.  Which parts are written in what is just an implementation detail
 unimportant to the clients submitting requests and getting back responses.
 
-The reasons to choose Java versus Javascript are a matter of tradeoffs.  Java
-can give faster performance (though most applicatons are I/O bound - waiting for
-the network or the database so the slower speed of Rhino Javascript is plenty
-fast enough), or Java might be preferred if you're invoking a lot of Java libraries
-to handle the request (though invoking Java from Rhino *usually* works pretty  
-well anyway).  
+The reasons to choose Java versus Javascript are a matter of tradeoffs.  Java can 
+give faster performance (though most applicatons are I/O bound - waiting for
+the network or the database so the slower speed of Rhino Javascript is plenty fast
+enough), or Java might be preferred if you're invoking a lot of Java libraries to
+handle the request (though invoking Java from Rhino usually works pretty well anyway).  
 
 Otoh Javascript might be preferred if you've got a Javascript
 client (e.g. a browser web page using Javascript) and you want to use the
